@@ -1,5 +1,6 @@
 package com.example.truker
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
@@ -7,6 +8,7 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat.setOnApplyWindowInsetsListener
 import androidx.core.view.WindowInsetsCompat
+import kotlin.jvm.java
 
 class MainActivity : AppCompatActivity() {
 
@@ -16,6 +18,8 @@ class MainActivity : AppCompatActivity() {
     private var jogador1Vitorias = 0
     private var jogador2Vitorias = 0
 
+    private lateinit var tvJogador1: TextView
+    private lateinit var tvJogador2: TextView
     private lateinit var tvJogador1Pontos: TextView
     private lateinit var tvJogador2Pontos: TextView
 
@@ -30,6 +34,8 @@ class MainActivity : AppCompatActivity() {
         }
 
         // Inicialização dos TextViews
+        tvJogador1 = findViewById(R.id.tvJogador1)
+        tvJogador2 = findViewById(R.id.tvJogador2)
         tvJogador1Pontos = findViewById(R.id.tvJogador1Pontos)
         tvJogador2Pontos = findViewById(R.id.tvJogador2Pontos)
 
@@ -68,6 +74,17 @@ class MainActivity : AppCompatActivity() {
         }
         findViewById<Button>(R.id.btJogador2Soma12).setOnClickListener {
             atualizarPontos(2, 12)
+        }
+
+        // Configuração dos botões de controle
+        findViewById<Button>(R.id.btHistorico).setOnClickListener {
+            val intent = Intent(this, Historico::class.java).apply {
+                putExtra("nomeJogador1", tvJogador1.text.toString())
+                putExtra("qtVitoriasJogador1", jogador1Vitorias)
+                putExtra("nomeJogador2", tvJogador2.text.toString())
+                putExtra("qtVitoriasJogador2", jogador2Vitorias)
+            }
+            startActivity(intent)
         }
     }
 
