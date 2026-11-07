@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <!-- Jogador 1 -->
+    <TextView
+        android:id="@+id/tvJogador1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:text="Jogador 1:" />
+
+    <!-- botões jogador 1 -->
+    <LinearLayout
+        style="?android:attr/buttonBarStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="0dp">
+
+        <Button
+            android:id="@+id/btJogador1Soma1"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="+1" />
+
+        <Button
+            android:id="@+id/btJogador1Soma3"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="+3" />
+
+        <Button
+            android:id="@+id/btJogador1Soma6"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="+6" />
+
+        <Button
+            android:id="@+id/btJogador1Soma9"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="+9" />
+
+        <Button
+            android:id="@+id/btJogador1Soma12"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="+12" />
+
+    </LinearLayout>
+
+    <!-- Jogador 2 -->
+    <TextView
+        android:id="@+id/tvJogador1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:text="Jogador 2:" />
+
+    <!-- botões jogador 2 -->
+    <LinearLayout
+        style="?android:attr/buttonBarStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="0dp">
+
+        <Button
+            android:id="@+id/btJogador2Soma1"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="+1" />
+
+        <Button
+            android:id="@+id/btJogador2Soma3"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="+3" />
+
+        <Button
+            android:id="@+id/btJogador2Soma6"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="+6" />
+
+        <Button
+            android:id="@+id/btJogador2Soma9"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="+9" />
+
+        <Button
+            android:id="@+id/btJogador2Soma12"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="+12" />
+
+    </LinearLayout>
+
+    <!-- Botões de Controle  -->
+    <Button
+        android:id="@+id/btHistorico"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Hist. de Jogadas"
+        android:layout_marginBottom="8dp" />
+
+    <Button
+        android:id="@+id/btZerarHistorico"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Zerar Histórico"
+        android:layout_marginBottom="8dp" />
+
+    <Button
+        android:id="@+id/btInfNomes"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Inf. Nomes" />
+
+</LinearLayout>
