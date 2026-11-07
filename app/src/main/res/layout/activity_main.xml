@@ -7,12 +7,26 @@
     android:padding="16dp">
 
     <!-- Jogador 1 -->
-    <TextView
-        android:id="@+id/tvJogador1"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:text="Jogador 1:" />
+        android:orientation="horizontal"
+        android:padding="0dp"
+        android:layout_marginBottom="8dp">
+
+        <TextView
+            android:id="@+id/tvJogador1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Jogador 1:" />
+
+        <TextView
+            android:id="@+id/tvJogador1Pontos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="xx" />
+    </LinearLayout>
 
     <!-- botões jogador 1 -->
     <LinearLayout
@@ -65,12 +79,26 @@
     </LinearLayout>
 
     <!-- Jogador 2 -->
-    <TextView
-        android:id="@+id/tvJogador1"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:text="Jogador 2:" />
+        android:orientation="horizontal"
+        android:padding="0dp"
+        android:layout_marginBottom="8dp">
+
+        <TextView
+            android:id="@+id/tvJogador2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Jogador 2:" />
+
+        <TextView
+            android:id="@+id/tvJogador2Pontos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="xx" />
+    </LinearLayout>
 
     <!-- botões jogador 2 -->
     <LinearLayout
@@ -127,15 +155,15 @@
         android:id="@+id/btHistorico"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hist. de Jogadas"
-        android:layout_marginBottom="8dp" />
+        android:layout_marginBottom="8dp"
+        android:text="Hist. de Jogadas" />
 
     <Button
         android:id="@+id/btZerarHistorico"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Zerar Histórico"
-        android:layout_marginBottom="8dp" />
+        android:layout_marginBottom="8dp"
+        android:text="Zerar Histórico" />
 
     <Button
         android:id="@+id/btInfNomes"
