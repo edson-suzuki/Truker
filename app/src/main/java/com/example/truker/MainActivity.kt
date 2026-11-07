@@ -86,6 +86,11 @@ class MainActivity : AppCompatActivity() {
             }
             startActivity(intent)
         }
+
+        findViewById<Button>(R.id.btZerarHistorico).setOnClickListener {
+            jogador1Vitorias = 0
+            jogador2Vitorias = 0
+        }
     }
 
     private fun atualizarPontos(jogador: Int, pontos: Int) {
