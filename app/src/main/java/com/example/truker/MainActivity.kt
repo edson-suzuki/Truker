@@ -4,13 +4,35 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat.setOnApplyWindowInsetsListener
 import androidx.core.view.WindowInsetsCompat
-import kotlin.jvm.java
 
 class MainActivity : AppCompatActivity() {
+
+    private var nomeJogador1 = "Jogador 1"
+    private var nomeJogador2 = "Jogador 2"
+
+    private val getNomeJogadores = registerForActivityResult(
+        ActivityResultContracts.StartActivityForResult()
+    ) { result ->
+        if (result.resultCode == RESULT_OK) {
+            val data: Intent? = result.data
+            val nome1 = data?.getStringExtra("nomeJogador1")
+            val nome2 = data?.getStringExtra("nomeJogador2")
+
+            if (!nome1.isNullOrEmpty()) {
+                nomeJogador1 = nome1
+                tvJogador1.text = nome1
+            }
+            if (!nome2.isNullOrEmpty()) {
+                nomeJogador2 = nome2
+                tvJogador2.text = nome2
+            }
+        }
+    }
 
     // declaração variáveis
     private var jogador1Pontos = 0
@@ -39,6 +61,8 @@ class MainActivity : AppCompatActivity() {
         tvJogador1Pontos = findViewById(R.id.tvJogador1Pontos)
         tvJogador2Pontos = findViewById(R.id.tvJogador2Pontos)
 
+        tvJogador1.text = nomeJogador1
+        tvJogador2.text = nomeJogador2
         tvJogador1Pontos.text = jogador1Pontos.toString()
         tvJogador2Pontos.text = jogador2Pontos.toString()
 
@@ -79,9 +103,9 @@ class MainActivity : AppCompatActivity() {
         // Configuração dos botões de controle
         findViewById<Button>(R.id.btHistorico).setOnClickListener {
             val intent = Intent(this, Historico::class.java).apply {
-                putExtra("nomeJogador1", tvJogador1.text.toString())
+                putExtra("nomeJogador1", nomeJogador1)
                 putExtra("qtVitoriasJogador1", jogador1Vitorias)
-                putExtra("nomeJogador2", tvJogador2.text.toString())
+                putExtra("nomeJogador2", nomeJogador2)
                 putExtra("qtVitoriasJogador2", jogador2Vitorias)
             }
             startActivity(intent)
@@ -90,6 +114,15 @@ class MainActivity : AppCompatActivity() {
         findViewById<Button>(R.id.btZerarHistorico).setOnClickListener {
             jogador1Vitorias = 0
             jogador2Vitorias = 0
+            zerarPontos()
+        }
+
+        findViewById<Button>(R.id.btInfNomes).setOnClickListener {
+            val intent = Intent(this, InformarNomes::class.java).apply {
+                putExtra("nomeJogador1", nomeJogador1)
+                putExtra("nomeJogador2", nomeJogador2)
+            }
+            getNomeJogadores.launch(intent)
         }
     }
 
@@ -109,16 +142,16 @@ class MainActivity : AppCompatActivity() {
         val pontos = if (jogador == 1) jogador1Pontos else jogador2Pontos
 
         if (pontos > 11) {
+            val nomeVencedor = if (jogador == 1) nomeJogador1 else nomeJogador2
             if (jogador == 1) {
                 jogador1Vitorias++
             } else {
                 jogador2Vitorias++
             }
 
-            // Exemplo com AlertDialog (Recomendado para fim de jogo)
             AlertDialog.Builder(this)
                 .setTitle("Fim de Partida!")
-                .setMessage("Jogador $jogador venceu a partida!")
+                .setMessage("$nomeVencedor venceu a partida!")
                 .setPositiveButton("OK") { _, _ ->
                     zerarPontos()
                 }
